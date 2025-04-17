@@ -10,6 +10,21 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+# Gradle
+bin/
+build/
+.gradle
+.gradletasknamecache
+gradle-app.setting
+!gradle-wrapper.jar
+
+# visual studio code
+.vscode
+.code-workspace
+
+# OS X
+.DS_Store
+
 # Package Files #
 *.jar
 *.war
