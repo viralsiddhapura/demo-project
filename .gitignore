@@ -25,6 +25,10 @@ gradle-app.setting
 # OS X
 .DS_Store
 
+# Ignore sensitive config files
+config.properties
+.env
+
 # Package Files #
 *.jar
 *.war
