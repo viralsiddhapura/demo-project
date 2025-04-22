@@ -17,6 +17,9 @@ build/
 .gradletasknamecache
 gradle-app.setting
 !gradle-wrapper.jar
+gradlew
+gradlew.bat
+gradle/
 
 # visual studio code
 .vscode
