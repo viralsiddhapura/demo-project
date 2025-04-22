@@ -11,6 +11,7 @@ plugins {
     id "java"
     id "idea"
     id "eclipse"
+    id 'com.github.davidmc24.gradle.plugin.avro' version '1.5.0'
 }
 
 sourceCompatibility = "1.11"
@@ -34,13 +35,17 @@ dependencies {
     // needed if OAuth is used; otherwise this can be left out.
     // See: https://docs.confluent.io/platform/current/kafka/authentication_sasl/authentication_sasl_oauth.html
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.15.2'
+
+    implementation group: 'io.confluent', name: 'kafka-avro-serializer', version: '7.5.0'
+    implementation group: 'org.apache.avro', name: 'avro', version: '1.11.1'
+    implementation group: 'com.opencsv', name: 'opencsv', version: '5.10'
 }
 
 jar {
     manifest {
         attributes(
                 "Class-Path": configurations.compileClasspath.collect { it.getName() }.join(" "),
-                "Main-Class": "io.confluent.developer.ProducerExample"
+                "Main-Class": "io.confluent.developer.ProducerAvro"
         )
     }
 }
@@ -49,3 +54,20 @@ shadowJar {
     archiveBaseName = "kafka-java-demo"
     archiveClassifier = ''
 }
+
+avro {
+    stringType = "String"
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java', 'build/generated-main-avro-java']
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+}
+
+compileJava.dependsOn generateAvroJava
