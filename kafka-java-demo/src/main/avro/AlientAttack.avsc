@@ -1,0 +1,12 @@
+{
+    "namespace": "io.confluent.developer",
+    "type": "record",
+    "name": "AlienAttack",
+      "fields": [
+        { "name": "humanName", "type": "string" },
+        { "name": "planetVisited", "type": "string" },
+        { "name": "attackDurationMinutes", "type": "int" },
+        { "name": "probeUsed", "type": "boolean" },
+        { "name": "alienSpecies", "type": "string" }
+      ]
+}
