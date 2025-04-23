@@ -23,7 +23,7 @@ import io.confluent.kafka.serializers.KafkaAvroSerializer;
 
 public class ProducerAvro {
 
-    @SuppressWarnings("CallToPrintStackTrace")
+    @SuppressWarnings({"CallToPrintStackTrace", "UseSpecificCatch"})
     public static void main(String[] args) throws Exception {
         Properties credentials = new Properties();
 
